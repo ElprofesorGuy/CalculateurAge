@@ -20,7 +20,7 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        DateTime dateNaissance = pickerDate.Date ?? DateTime.Today;
+        DateTime dateNaissance = pickerDate.Date;
         DateTime aujourdHui = DateTime.Today;
 
         int age = aujourdHui.Year - dateNaissance.Year;
