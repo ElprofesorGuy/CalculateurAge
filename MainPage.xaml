@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CalculateurAge.MainPage"
-             Title="Calculateur">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CalculateurAge.MainPage"
+    Title="Calculateur">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="20">
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="20">
 
             <Label
                 Text="Calculateur d'âge"
@@ -14,22 +17,21 @@
                 HorizontalOptions="Center" />
 
             <Entry
-                x:Name="entryNom"
-                Placeholder="Entrez votre nom" />
+                Placeholder="Votre nom"
+                Text="{Binding Nom, Mode=TwoWay}" />
 
             <DatePicker
-                x:Name="pickerDate" />
+                Date="{Binding DateNaissance}" />
 
             <Button
-                x:Name="btnCalculer"
-                Text="Calculer mon âge"
-                Clicked="OnCalculerClicked" />
+                Text="Calculer"
+                Command="{Binding CalculerCommand}" />
 
             <Label
-                x:Name="lblResultat"
+                Text="{Binding Resultat}"
+                IsVisible="{Binding ResultatVisible}"
                 FontSize="20"
-                HorizontalOptions="Center"
-                IsVisible="False" />
+                HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>
