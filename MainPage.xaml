@@ -38,6 +38,13 @@
                 IsVisible="{Binding ResultatVisible}"
                 FontSize="18"
                 HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                Text="{Binding Generation}"
+                IsVisible="{Binding ResultatVisible}"
+                FontSize="18"
+                HorizontalOptions="Center"
                 HorizontalTextAlignment="Center" /> 
 
         </VerticalStackLayout>

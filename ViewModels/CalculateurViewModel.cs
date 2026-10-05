@@ -7,6 +7,7 @@ public class CalculateurViewModel : BaseViewModel
     private DateTime _dateNaissance = DateTime.Today;
     private string _resultat = "";
     private bool _resultatVisible;
+    private string _generation = "";
 
     public string Nom
     {
@@ -22,6 +23,12 @@ public class CalculateurViewModel : BaseViewModel
     {
         get => _prochainAnniversaire;
         set => SetField(ref _prochainAnniversaire, value);
+    }
+
+    public string Generation
+    {
+        get => _generation;
+        set => SetField(ref _generation, value);
     }
 
     public DateTime DateNaissance
@@ -89,5 +96,22 @@ public class CalculateurViewModel : BaseViewModel
 
         ProchainAnniversaire =
             $"Votre prochain anniversaire est dans {joursRestants} jour(s).";
+
+        if (age < 13)
+        {
+            Generation = "Vous êtes un enfant.";
+        }
+        else if (age < 18)
+        {
+            Generation = "Vous êtes un adolescent.";
+        }
+        else if (age < 60)
+        {
+            Generation = "Vous êtes un adulte.";
+        }
+        else
+        {
+            Generation = "Vous êtes un senior.";
+        }
     }
 }
