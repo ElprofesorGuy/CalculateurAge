@@ -3,6 +3,7 @@
 public class CalculateurViewModel : BaseViewModel
 {
     private string _nom = "";
+    private string _prochainAnniversaire = "";
     private DateTime _dateNaissance = DateTime.Today;
     private string _resultat = "";
     private bool _resultatVisible;
@@ -15,6 +16,12 @@ public class CalculateurViewModel : BaseViewModel
             if (SetField(ref _nom, value))
                 CalculerCommand.Rafraichir();
         }
+    }
+
+    public string ProchainAnniversaire
+    {
+        get => _prochainAnniversaire;
+        set => SetField(ref _prochainAnniversaire, value);
     }
 
     public DateTime DateNaissance
@@ -66,5 +73,21 @@ public class CalculateurViewModel : BaseViewModel
             $"{Nom}, vous avez {age} ans.\n{statut}";
 
         ResultatVisible = true;
+
+        DateTime prochainAnniversaire = new DateTime(
+            aujourdHui.Year,
+            DateNaissance.Month,
+            DateNaissance.Day);
+
+        if (prochainAnniversaire < aujourdHui)
+        {
+            prochainAnniversaire = prochainAnniversaire.AddYears(1);
+        }
+
+        int joursRestants =
+            (prochainAnniversaire - aujourdHui).Days;
+
+        ProchainAnniversaire =
+            $"Votre prochain anniversaire est dans {joursRestants} jour(s).";
     }
 }

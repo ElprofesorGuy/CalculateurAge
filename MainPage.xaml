@@ -33,6 +33,13 @@
                 FontSize="20"
                 HorizontalOptions="Center" />
 
+            <Label
+                Text="{Binding ProchainAnniversaire}"
+                IsVisible="{Binding ResultatVisible}"
+                FontSize="18"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" /> 
+
         </VerticalStackLayout>
     </ScrollView>
 
